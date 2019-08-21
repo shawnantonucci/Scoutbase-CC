@@ -33,17 +33,20 @@ const Country = () => {
         <CountryContainer>
             {data.countries.map(country => (
                 <CountryCard key={country.code}>
-                    <li>
-                        <b>Continent: </b>
-                        {country.continent.name}
-                    </li>
-                    <li>
-                        <b>Country Name: </b>
-                        {country.name}
-                    </li>
-                    <b>Languages spoken:</b>
+                    <b>Country Name: </b>
+                    <li>{country.name}</li>
+                    <b>Continent: </b>
+                    <li>{country.continent.name}</li>
+                    <div>
+                        <b>Languages : </b>
+                        <b>Native Language</b>
+                    </div>
                     {country.languages.map(language => {
-                        return <li key={language.name}>{language.name} {language.native}</li>;
+                        return (
+                            <li key={language.name}>
+                                {language.name} - {language.native}
+                            </li>
+                        );
                     })}
                 </CountryCard>
             ))}
@@ -66,18 +69,15 @@ const CountryCard = styled.div`
     border: 1px solid black;
     display: flex;
     flex-direction: column;
-    width: 20%;
-    height: auto;
+    width: auto;
+    height: fit-content;
     align-items: flex-start;
     margin: 15px;
     padding: 15px;
 
-    div {
-        margin: 5px;
-    }
-
     li {
         list-style-type: none;
+        white-space: nowrap;
     }
 `;
 
