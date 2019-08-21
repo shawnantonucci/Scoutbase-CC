@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "apollo-server": "^2.8.2",
+    "express": "^4.17.1",
+    "graphql": "^14.4.2"
+  },
+  "name": "back-end",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT"
+}
