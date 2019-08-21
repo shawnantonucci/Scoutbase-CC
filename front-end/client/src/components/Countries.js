@@ -1,6 +1,7 @@
 import React from "react";
 import Links from "./Links";
 import { useQuery } from "@apollo/react-hooks";
+import { Link } from "react-router-dom";
 import gql from "graphql-tag";
 import styled from "styled-components";
 
@@ -32,7 +33,7 @@ const Country = () => {
     return (
         <CountryContainer>
             {data.countries.map(country => (
-                <CountryCard key={country.code}>
+                <CountryCard key={country.code} to={country.code}>
                     <b>Country Name: </b>
                     <li>{country.name}</li>
                     <b>Continent: </b>
@@ -74,7 +75,7 @@ const CountryContainer = styled.div`
     width: 100%;
 `;
 
-const CountryCard = styled.div`
+const CountryCard = styled(Link)`
     border: 1px solid white;
     display: flex;
     flex-direction: column;
@@ -84,6 +85,7 @@ const CountryCard = styled.div`
     margin: 15px;
     padding: 15px;
     border-radius: 10px;
+    text-decoration: none;
 
     li {
         list-style-type: none;

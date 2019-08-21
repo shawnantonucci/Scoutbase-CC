@@ -32,9 +32,9 @@ const SingleCountry = props => {
         console.log(data);
         return (
             <CountryContainer>
-                <p>Country: {data.country.name}</p>
-                <p>Currency: {data.country.currency}</p>
-                <p>Area Code: {data.country.phone}</p>
+                <p><b>Country: </b>{data.country.name}</p>
+                <p><b>Currency: </b>{data.country.currency}</p>
+                <p><b>Area Code: </b>{data.country.phone}</p>
             </CountryContainer>
         );
     };
