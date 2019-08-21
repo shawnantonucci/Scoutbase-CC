@@ -11,7 +11,7 @@ const LandingPage = () => {
                 with the relevent data
             </p>
             <p>
-                To access an indivual country with the revelvent data add to the
+                To access an individual country with the relevent data add to the
                 url /countries/code
             </p>
             <p>example: /countries/ad</p>
