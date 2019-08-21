@@ -65,8 +65,17 @@ const Countries = () => {
 
 export default Countries;
 
+const CountryContainer = styled.div`
+    display: flex;
+    justify-content: space-evenly;
+    margin: 0;
+    margin-top: 25px;
+    flex-flow: wrap;
+    width: 100%;
+`;
+
 const CountryCard = styled.div`
-    border: 1px solid black;
+    border: 1px solid white;
     display: flex;
     flex-direction: column;
     width: auto;
@@ -74,17 +83,15 @@ const CountryCard = styled.div`
     align-items: flex-start;
     margin: 15px;
     padding: 15px;
+    border-radius: 10px;
 
     li {
         list-style-type: none;
         white-space: nowrap;
+        color: white;
     }
-`;
 
-const CountryContainer = styled.div`
-    display: flex;
-    justify-content: center;
-    border: 1px solid black;
-    flex-flow: wrap;
-    width: 100%;
+    b {
+        color: green;
+    }
 `;
