@@ -41,6 +41,13 @@ const movies = [
     }
 ];
 
+let users = [
+    {
+        id: "user-0",
+        name: "Shawn"
+    }
+];
+
 const typeDefs = gql`
     type Movie {
         title: String
@@ -64,17 +71,43 @@ const typeDefs = gql`
 
     type Query {
         movies: [Movie]
+        users: [User]
+    }
+
+    type Mutation {
+        createUser(username: String, password: String): User
+    }
+
+    type User {
+        id: ID
+        name: String
     }
 `;
 
+let idCount = users.length;
+
 const resolvers = {
     Query: {
-        movies: () => movies
+        movies: () => movies,
+        users: () => users
+    },
+    Mutation: {
+        createUser: (parent, args) => {
+            const user = {
+                id: `user-${idCount++}`,
+                name: args.name
+            };
+            users.push(user);
+            return user;
+        }
     }
 };
 
-const server = new ApolloServer({ typeDefs, resolvers });
+const server = new ApolloServer({
+    typeDefs,
+    resolvers
+});
 
 server.listen().then(({ url }) => {
-    console.log(`🚀  Server ready at ${url}`);
+    console.log(`Server ready at ${url}`);
 });
