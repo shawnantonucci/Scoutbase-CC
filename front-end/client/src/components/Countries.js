@@ -11,6 +11,7 @@ const GET_COUNTRIES = gql`
             code
             languages {
                 name
+                native
             }
             continent {
                 name
@@ -42,9 +43,7 @@ const Country = () => {
                     </li>
                     <b>Languages spoken:</b>
                     {country.languages.map(language => {
-                        return (
-                            <li key={language.name}>{`${language.name},`}</li>
-                        );
+                        return <li key={language.name}>{language.name} {language.native}</li>;
                     })}
                 </CountryCard>
             ))}
@@ -72,6 +71,10 @@ const CountryCard = styled.div`
     align-items: flex-start;
     margin: 15px;
     padding: 15px;
+
+    div {
+        margin: 5px;
+    }
 
     li {
         list-style-type: none;
